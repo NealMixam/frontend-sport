@@ -1,0 +1,78 @@
+/* By Athlon Front-End Team */
+
+/* Core variables */
+@import 'base/vars';
+
+/* CSS Reset */
+@import 'base/reset';
+
+/* CSS print */
+@import 'base/print';
+
+/* Fonts */
+@import 'base/fonts';
+
+/* Mixins, helpers and functions */
+@import 'base/mixins';
+
+/* Vendor */
+body {
+}
+
+.page {
+  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
+}
+
+a {
+  transition: opacity 0.6s;
+  &:hover,
+  &:active,
+  &:focus {
+    opacity: 0.6;
+  }
+}
+
+h2 {
+  font-family: 'Bebas Neue Bold';
+  font-weight: 600;
+  font-size: 49px;
+  line-height: 100%;
+  text-transform: uppercase;
+  letter-spacing: 3%;
+  color: $blue;
+
+  @media (max-width: 1024px) {
+    font-size: 42px;
+  }
+
+  @media (max-width: 700px) {
+    font-size: 32px;
+  }
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  @media (max-width: 1024px) {
+    flex-wrap: wrap;
+  }
+}
+/* Components */
+@import 'components/hero';
+@import 'components/gym';
+@import 'components/abonements';
+@import 'components/promo';
+@import 'components/trainers';
+@import 'components/stock';
+@import 'components/reviews';
+@import 'components/features';
+@import 'components/proposal';
+@import 'components/contacts';
+@import 'components/footer';
+@import 'components/popup';
+
+/* Browser specific styles */
+@import 'dirty/hacks';

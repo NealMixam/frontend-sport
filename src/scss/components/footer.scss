@@ -1,0 +1,91 @@
+.footer {
+  padding: 44px 103px 42px 103px;
+  background-color: $black;
+  font-family: 'Roboto Regular';
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: space-between;
+
+  &__logo {
+    font-family: 'Bebas Neue Bold';
+    font-size: 26px !important;
+    line-height: auto;
+    text-transform: uppercase;
+    color: $white;
+
+    @media (max-width: 700px) {
+      font-size: 24px !important;
+    }
+
+    @media (max-width: 375px) {
+      font-size: 20px !important;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+
+    li {
+      &:nth-child(1) {
+        margin-right: 236px;
+
+        @media (max-width: 1280px) {
+          margin-right: 120px;
+        }
+
+        @media (max-width: 1024px) {
+          margin-right: 32px;
+        }
+
+        @media (max-width: 700px) {
+          margin-right: 0;
+        }
+      }
+
+      a {
+        font-size: 14px;
+        color: $white;
+      }
+
+      @media (max-width: 700px) {
+        width: 44%;
+      }
+    }
+
+    @media (max-width: 1024px) {
+      gap: 30px;
+    }
+
+    @media (max-width: 700px) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+
+    @media (max-width: 1024px) {
+      gap: 20px;
+    }
+  }
+
+  @media (max-width: 1280px) {
+    padding: 44px 70px 42px;
+  }
+
+  @media (max-width: 1024px) {
+    padding: 47px 45px 45px;
+  }
+
+  @media (max-width: 700px) {
+    padding: 50px 15px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px 5px;
+  }
+}
