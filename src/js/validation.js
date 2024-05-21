@@ -1,15 +1,14 @@
+/* eslint-disable no-undef */
 import Inputmask from 'inputmask';
 
-let attemptCount = 0;
-let isBlocked = false;
-
 document.addEventListener('DOMContentLoaded', function () {
+  let attemptCount = 0;
+  let isBlocked = false;
   var phoneInput = document.getElementById('phone');
   var phoneMask = new Inputmask('+7 (999) 999-99-99');
-  phoneMask.mask(phoneInput);
-
   var phonePattern = /^\+7 \(\d{3}\) \d{3}-\d{2}-\d{2}$/;
 
+  phoneMask.mask(phoneInput);
   document.getElementById('form').addEventListener('submit', function (event) {
     if (!phonePattern.test(phoneInput.value)) {
       alert('Пожалуйста, введите корректный номер телефона.');
@@ -22,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const nameError = document.getElementById('nameError');
     const nameValue = nameInput.value;
     nameError.innerText = '';
+    nameError.style = 'margin-top: 25px';
 
     if (/^[a-zA-Z]/.test(nameValue)) {
       nameError.innerText = 'Пожалуйста вводите только кириллицу';
@@ -75,9 +75,9 @@ document.addEventListener('DOMContentLoaded', function () {
     const nameInput = document.getElementById('name');
     const nameError = document.getElementById('nameError');
     nameInput.disabled = true;
-    let timer = 30;
 
     const interval = setInterval(() => {
+      let timer = 30;
       nameError.innerText = `Ввод заблокирован на ${timer} секунд`;
       if (timer <= 0) {
         clearInterval(interval);
@@ -94,13 +94,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
   document.getElementById('form').addEventListener('submit', function (event) {
     event.preventDefault();
+    validateForm();
 
     if (!phonePattern.test(phoneInput.value)) {
+      // eslint-disable-next-line no-alert
       alert('Пожалуйста, введите корректный номер телефона.');
       return;
     }
 
-    var formData = {
+    if (!validateName()) {
+      alert('Заполните поля в нужном формате');
+      return;
+    }
+
+    const formData = {
       name: document.getElementById('name').value,
       phone: document.getElementById('phone').value,
     };
